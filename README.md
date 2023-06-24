@@ -5,3 +5,19 @@
 
 ### 头文件
 使用#parma once指令可以防止头文件被多次引入
+
+### 条件分支
+使用条件分支语句是比较消耗性能的
+
+### 循环
+Loops is just easy
+
+### 流程控制
+continue: 跳过本次循环
+break: 跳出循环
+return: 从任何地方跳出函数
+
+### 指针
+the pointer is an integer, a number, which stores the memory address
+而指针的指针存储的就是指针的地址，也是只是一个数字而已
+
