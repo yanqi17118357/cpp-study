@@ -18,6 +18,10 @@ break: 跳出循环
 return: 从任何地方跳出函数
 
 ### 指针
-the pointer is an integer, a number, which stores the memory address
+the pointer is an integer, a number, which stores the memory address!!!
+<br>
 而指针的指针存储的就是指针的地址，也是只是一个数字而已
 
+### 引用
+引用的符号是&<br>
+引用是指针的语法糖，在使用的时候不需要使用*来解引用
