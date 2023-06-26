@@ -25,3 +25,6 @@ the pointer is an integer, a number, which stores the memory address!!!
 ### 引用
 引用的符号是&<br>
 引用是指针的语法糖，在使用的时候不需要使用*来解引用
+
+### 类
+类和结构体的区别就是类的成员默认是private的，而结构体的成员默认是public的
