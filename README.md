@@ -13,13 +13,12 @@
 Loops is just easy
 
 ### 流程控制
-continue: 跳过本次循环
-break: 跳出循环
-return: 从任何地方跳出函数
+continue: 跳过本次循环<br>
+break: 跳出循环<br>
+return: 从任何地方跳出函数<br>
 
 ### 指针
-the pointer is an integer, a number, which stores the memory address!!!
-<br>
+the pointer is an integer, a number, which stores the memory address!!!<br>
 而指针的指针存储的就是指针的地址，也是只是一个数字而已
 
 ### 引用
@@ -28,3 +27,13 @@ the pointer is an integer, a number, which stores the memory address!!!
 
 ### 类
 类和结构体的区别就是类的成员默认是private的，而结构体的成员默认是public的
+
+### static
+在类外边使用，表示这个变量只能在这个文件中使用，不能在其他文件中使用<br>
+在类里边使用，表示这个变量是属于这个类的，实例之间共享
+
+### 类和结构体中的static
+静态函数不能访问非静态成员变量
+静态变量必须在类外被定义，在类内只能声明
+
+###
