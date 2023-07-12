@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Log.h"
 
 void Function() {
     static int i = 0;
@@ -20,7 +21,10 @@ public:
 
 int main() {
 
-    Singletion::Get().Hello();
+    Log log;
+    log.Warn("Hello!");
+    log.Error("Hello!");
+    log.Info("Hello!");
 
     std::cin.get();
 
