@@ -36,4 +36,31 @@ the pointer is an integer, a number, which stores the memory address!!!<br>
 静态函数不能访问非静态成员变量
 静态变量必须在类外被定义，在类内只能声明
 
-###
+### 本地作用域中的static
+
+```c++
+// 每次调用此函数，都是用的是同一个i
+void Function() {
+    // 没有static的话，i创建在堆栈上，退出{}就会被摧毁
+    static int i = 0;
+    i++;
+    std::cout << i << std::endl;
+}
+```
+
+```c++
+// 单例简写代码
+class Singletion {
+public:
+    static Singletion& Get() {
+        // 使用本地static，不必定义类的私有属性
+        static Singletion instance;
+        return instance;
+    }
+
+    void Hello() {
+        std::cout << "Hello, World!" << std::endl;
+    }
+};
+```
+
