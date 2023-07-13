@@ -1,22 +1,23 @@
 #include <iostream>
-#include "Log.h"
 
-// 类型必须是整数类型
-enum Example : unsigned char {
-    A, B, C
+class Entity {
+public:
+    float X, Y;
+
+    Entity() {
+        X = 0.0f;
+        Y = 0.0f;
+    }
+
+    void print() {
+        std::cout << X << ", " << Y << std::endl;
+    }
 };
-
-int a = 0;
-int b = 1;
-int c = 2;
 
 int main() {
 
-    Log log;
-    log.SetLevel(Log::LevelError);
-    log.Warn("Hello!");
-    log.Error("Hello!");
-    log.Info("Hello!");
+    Entity e;
+    e.print();
 
     std::cin.get();
 }
