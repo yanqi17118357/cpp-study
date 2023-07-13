@@ -3,9 +3,9 @@
 
 class Log {
 public:
-    const int LogLevelError = 0;
-    const int LogLevelWarning = 1;
-    const int LogLevelInfo = 2;
+    enum Level {
+        LevelError, LevelWarning, LevelInfo
+    };
 
     void SetLevel(int level);
     void Info(const char* message);
@@ -13,5 +13,5 @@ public:
     void Error(const char* message);
 
 private:
-    int m_LogLevel = LogLevelInfo;
+    int m_LogLevel = LevelInfo;
 };
