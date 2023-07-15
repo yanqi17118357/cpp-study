@@ -76,4 +76,16 @@ public:
 ### 析构函数
 析构函数的作用就是在对象被销毁的时候，释放资源
 
+### 继承
+
+```cpp
+class A {
+public:
+    float X, Y;
+}
+class B: public A {
+public:
+    const char
+}
+```
 
