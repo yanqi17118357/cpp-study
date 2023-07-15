@@ -85,7 +85,11 @@ public:
 }
 class B: public A {
 public:
-    const char
+    const char* Name;
 }
 ```
+
+### 虚函数
+虚函数的作用就是在子类中重写父类的方法
+
 
