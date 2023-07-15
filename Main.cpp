@@ -5,8 +5,13 @@ public:
     float X, Y;
 
     Entity() {
-        X = 0.0f;
-        Y = 0.0f;
+        X = 10.0f;
+        Y = 10.0f;
+        std::cout << "Created Entity!" << std::endl;
+    }
+
+    ~Entity() {
+        std::cout << "Destroyed Entity!" << std::endl;
     }
 
     void print() {
@@ -14,10 +19,14 @@ public:
     }
 };
 
-int main() {
-
+void Function() {
     Entity e;
     e.print();
+}
+
+int main() {
+
+    Function();
 
     std::cin.get();
 }
