@@ -18,7 +18,7 @@ break: 跳出循环<br>
 return: 从任何地方跳出函数<br>
 
 ### 指针
-the pointer is an integer, a number, which stores the memory address!!!<br>
+**the pointer is an integer, a number, which stores the memory address!!!**<br>
 而指针的指针存储的就是指针的地址，也是只是一个数字而已
 
 ### 引用
@@ -101,4 +101,20 @@ virtual void Function() = 0;
 
 纯虚函数的作用就是在父类中定义一个**接口**，让子类去实现，从而达到多态的目的
 
-### 
+### 访问权限控制
+访问控制符有三种：public, protected, private
+类中和结构体中不写，不代表没有，只是默认的访问权限不同
+这是定义类的时候使用class和struct的仅有的区别
+```cpp
+// 结构体中默认为public
+struct A {
+    int X;
+    int Y;
+}
+// 类中默认为private
+class B {
+    int X;
+    int Y;
+}
+```
+
