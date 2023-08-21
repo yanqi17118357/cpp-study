@@ -1,26 +1,39 @@
 #include <iostream>
 #include <string>
-
-// 字符串复制速度很慢，所以确保使用常量引用传递它
-void PrintString(const std::string& string) {
-    std::cout << string << std::endl;
-}
+#include <locale>
+#include <codecvt>
+#include <cstring>
 
 int main() {
-    std::string str = std::string("yan") + "qi";
-    str += "qi";
-    // 由于iostream中已经隐式的包含了string头文件，所以可以直接打印str，不过不建议隐式的调用
-    std::cout << str << std::endl;
 
-    PrintString(str);
+    using namespace std::string_literals;
 
-    std::string name = "yanqi";
-    bool contains = name.find("qi") != std::string::npos;
-    std::cout << contains << std::endl;
+    // 使用string_literals命名空间的s字面量后缀来创建std::string类型的字符串对象
+    std::u32string name0 = U"YanQi"s + U" hello";
 
-    bool equal = name == str;
-    std::cout << equal << std::endl;
-    std::cout << str.size() << std::endl;
+    // 将 UTF-32 字符串转换为 UTF-8 字符串
+    std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> converter;
+    std::string utf8_name0 = converter.to_bytes(name0);
+
+    // 输出 UTF-8 字符串
+    std::cout << utf8_name0 << std::endl;
+
+    // utf-8字符指针
+    const char* str = u8"John";
+    // 宽字符类型指针
+    const wchar_t* str2 = L"John";
+    // utf-16字符指针
+    const char16_t* str3 = u"John";
+    // utf-32字符指针
+    const char32_t* str4 = U"John";
+
+    std::wstring h1 = str2;
+    std::u16string h2 = str3;
+    std::u32string h3 = str4;
+
+    const char name[8] = "Yan\0Qi";
+    // 结果是3，因为strlen会从\0处结束计算
+    std::cout << strlen(name) << std::endl;
 
     std::cin.get();
 }

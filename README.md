@@ -134,3 +134,26 @@ int main() {
 ### 字符串
 字符串就是一个字符数组，以\0结尾，以这种形式可以非常方便的表示文本内容
 
+### 字符串字面量
+C++11 引入了字符串字面量后缀，可以使用后缀来指定字符串的类型
+```c++
+#include <string>
+int main() {
+    using namespace std::string_literals;
+    std::string str1 = "Hello, World!"s; // 使用 s 后缀表示 std::string 类型的字符串
+    std::wstring str2 = L"你好，世界！"s; // 使用 s 后缀表示 std::wstring 类型的字符串
+    std::u16string str3 = u"你好，世界！"s; // 使用 s 后缀表示 std::u16string 类型的字符串
+    std::u32string str4 = U"你好，世界！"s; // 使用 s 后缀表示 std::u32string 类型的字符串
+}
+```
+
+对应的字符指针如下：
+```c++
+#include <string>
+int main() {
+    const char* str1 = "Hello, World!"; // 使用 s 后缀表示 std::string 类型的字符串
+    const wchar_t* str2 = L"你好，世界！"; // 使用 s 后缀表示 std::wstring 类型的字符串
+    const char16_t* str3 = u"你好，世界！"; // 使用 s 后缀表示 std::u16string 类型的字符串
+    const char32_t* str4 = U"你好，世界！"; // 使用 s 后缀表示 std::u32string 类型的字符串
+}
+```
