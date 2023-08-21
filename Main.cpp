@@ -1,57 +1,45 @@
 #include <iostream>
-#include <string>
+#include <array>
 
-class Printable {
+class Entity {
 public:
-    virtual std::string GetClassName() = 0;
+    std::array<int, 5> example;
+    Entity() {
+        int temp = 1;
+        for (int & i : example) {
+            i = temp;
+            temp++;
+        }
+    }
 };
-
-// public继承，基类的public成员在派生类中仍然是public成员，此为默认继承方式
-// protected继承，基类的public成员在派生类中变为protected成员
-// private继承，基类的public成员在派生类中变为private成员
-class Entity : public Printable {
-public:
-    // 定义为虚函数，子类可以重写
-    virtual std::string GetName() { return "Entity"; }
-    std::string GetClassName() override { return "Entity"; }
-};
-
-// 注意Entity继承自Printable, Player不需要继承Printable
-class Player : public Entity{
-private:
-    std::string m_Name;
-public:
-
-    Player(const std::string &name)
-            : m_Name(name) {}
-
-    std::string GetName() override { return m_Name; }
-    std::string GetClassName() override { return "Player"; }
-};
-
-class A : public Printable {
-public:
-    std::string GetClassName() override { return "A"; }
-};
-
-void PrintName(Entity *entity) {
-    std::cout << entity->GetName() << std::endl;
-}
-
-void Print(Printable *obj) {
-    std::cout << obj->GetClassName() << std::endl;
-}
 
 int main() {
+    // 和变量一样，如果只是创建数组但是不赋初始值的话，因为是在内存中随机申请的一块空间，有可能之前其他地方使用过，保存了一些数据，所以数组内部的元素值并不一定都是0
+    int arr[10];
+    for (int i = 0; i < 10; ++i) {
+        printf("%d\n", arr[i]);
+    }
 
-    Entity* entity = new Entity();
+    int example[5];
+    int* ptr = example;
+    for (int i = 0; i < 5; ++i) {
+        example[i] = 2;
+    }
+    // 内存偏移量为8的地方进行赋值
+    example[2] = 5;
+    // 这里的ptr + 2，而不是8，是因为ptr是int类型的指针，所以加2就是加两个int的长度
+    *(ptr + 2) = 6;
+    // 花里胡哨写法
+    *(int *)((char *)ptr + 8) = 7;
 
-    Player* player = new Player("yanqi");
-
-    Print(entity);
-    Print(player);
-    // 可能造成内存泄漏
-    Print(new A());
+    Entity e;
+    // size()返回的是size_t类型
+    printf("the array size is %zu\n", e.example.size());
+    e.example[6] = 2;
+    // 打印数组
+    for (int i = 0; i < e.example.size(); i++) {
+        printf("the index of %d is %d \n", i, e.example[i]);
+    }
 
     std::cin.get();
 }
